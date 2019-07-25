@@ -1,15 +1,24 @@
 ﻿<Properties StartupConfiguration="{57AA82FE-15FE-4500-82CC-747B2909B97F}|Default">
   <MonoDevelop.Ide.ItemProperties.MyWebSite PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/ProjectImage.cs">
     <Files>
-      <File FileName="Startup.cs" Line="19" Column="43" />
+      <File FileName="Startup.cs" Line="36" Column="50" />
+      <File FileName="Models/MyDBContext.cs" Line="5" Column="25" />
+      <File FileName="Configuration/ConfigurationDBContext.cs" Line="15" Column="86" />
+      <File FileName="appsettings.Development.json" Line="10" Column="23" />
+      <File FileName="appsettings.json" Line="7" Column="22" />
+      <File FileName="Models/Project.cs" Line="27" Column="6" />
+      <File FileName="Models/ProjectImage.cs" Line="14" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MyWebSite" expanded="True">
             <Node name="MyWebSite" expanded="True">
-              <Node name="Startup.cs" selected="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="ProjectImage.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

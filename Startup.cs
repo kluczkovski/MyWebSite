@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyWebSite.Configuration;
 
 namespace MyWebSite
 {
@@ -31,6 +32,8 @@ namespace MyWebSite
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // Setup DB Context
+            services.SetupDBContext(Configuration);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
