@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,5 +18,9 @@
     <Folder Include="Repository\Interface\" />
     <Folder Include="Configuration\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Projects\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="AutoMapper\" />
   </ItemGroup>
 </Project>

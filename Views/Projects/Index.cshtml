@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MyWebSite.ViewModels.ProjectViewModel>
+
+
+@{
+    ViewData["Title"] = "Project";
+}
+
+
+<div class="backgroundWhiteBorder">
+
+    <h4>List of Projects</h4>
+
+    <a class="btn btn-info" asp-action="Create">
+        Create New Project
+    </a>
+
+    <table class="table table-hover mt-4">
+        <thead class="table-dark">
+            <tr>
+                <th></th>
+                <th>@Html.DisplayNameFor(m => m.Name)</th>
+                <th>@Html.DisplayNameFor(m => m.Created)</th>
+                <th>@Html.DisplayNameFor(m => m.IsActive)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/images/@item.MainImage" alt="@item.Name" style="width:70px; height:100px;" />
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.Created</td>
+                    <td>@item.IsActive</td>
+                    <td>
+                        <a>Edit</a>
+                        <a>Details</a>
+                        <a>Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

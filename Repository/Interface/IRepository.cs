@@ -7,9 +7,9 @@ namespace MyWebSite.Repository.Interface
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : Entity
     {
-        Task Add(Entity entity);
+        Task Add(TEntity entity);
 
-        Task Update(Entity entity);
+        Task Update(TEntity entity);
 
         Task Delete(Guid id);
 
