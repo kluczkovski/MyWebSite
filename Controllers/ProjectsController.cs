@@ -89,10 +89,6 @@ namespace MyWebSite.Controllers
                 return NotFound();
             }
 
-            var projectFromRep = _projectRep.GetById(id);
-
-            var project = _mapper.Map<Project>(projectViewModel);
-
             // Update image
             if (projectViewModel.ImageUpload != null)
             {
@@ -104,13 +100,13 @@ namespace MyWebSite.Controllers
                 {
                     return View(projectViewModel);
                 }
-                project.MainImage = fileName;
+                projectViewModel.MainImage = fileName;
             }
-            projectFromRep = project;
 
-            await _projectRep.Update(projectFromRep);
+            var project = _mapper.Map<Project>(projectViewModel);
+            
+            await _projectRep.Update(project);
             await _projectRep.SaveChanges();
-
 
             return RedirectToAction(nameof(Index));
         }

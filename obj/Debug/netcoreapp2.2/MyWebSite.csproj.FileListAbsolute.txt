@@ -30,3 +30,5 @@
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/MyWebSite.csproj.CopyComplete
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/Index.g.cshtml.cs
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/Create.g.cshtml.cs
+/Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/_EditProject.g.cshtml.cs
+/Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/Edit.g.cshtml.cs

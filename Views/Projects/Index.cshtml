@@ -32,12 +32,12 @@
                         <img src="~/images/@item.MainImage" alt="@item.Name" style="width:70px; height:100px;" />
                     </td>
                     <td>@item.Name</td>
-                    <td>@item.Created</td>
+                    <td>@item.Created.ToString("D")</td>
                     <td>@item.IsActive</td>
-                    <td>
-                        <a>Edit</a>
-                        <a>Details</a>
-                        <a>Excluir</a>
+                    <td class="text-right">
+                        <a class="btn bg-black btn-sm" asp-controller="Projects" asp-action="Edit" asp-route-id="@item.Id"><span><i class="fas fa-pen"></i></span></a>
+                        <a class="btn bg-black btn-sm" asp-controller="Projects" asp-action="Details" asp-route-id="@item.Id"><spn><i class="fas fa-info-circle"></i></spn> </a>
+                        <a class="btn bg-black btn-sm" asp-controller="Projects" asp-action="Delete" asp-route-id="@item.Id"><span><i class="fas fa-minus-circle"></i></span></a>
                     </td>
                 </tr>
             }

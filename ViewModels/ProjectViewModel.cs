@@ -17,9 +17,9 @@ namespace MyWebSite.ViewModels
         public string Description { get; set; }
 
         //Used in the view
+        [Display(Name = "Main Image")]
         public IFormFile ImageUpload { get; set; }
         //Used in the model
-        [Display(Name ="Main Image")]
         public string MainImage { get; set; }
 
         [Required]
