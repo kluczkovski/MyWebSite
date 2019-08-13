@@ -25,5 +25,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="AutoMapper\" />
+    <Folder Include="Views\ProjectImages\" />
+    <Folder Include="Utility\" />
   </ItemGroup>
 </Project>

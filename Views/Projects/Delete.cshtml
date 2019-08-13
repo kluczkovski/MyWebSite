@@ -11,20 +11,21 @@
 
     <h4>@ViewData["Title"]</h4>
 
-    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <h3>Are you sure you want to Delete this record?</h3>
 
-        <partial name="_ProjectEdit.cshtml" />
+    <partial name="_ProjectDetails.cshtml" />
 
+    <form asp-action="Delete" method="post">
         <div class="row">
             <div class="col-12 col-md-6">
                 <a class="btn btn-warning form-control" asp-action="Index">Back to List</a>
             </div>
             <div class="col-12 col-md-6">
-                <button class="btn btn-primary form-control">Save</button>
+                <button class="btn btn-danger form-control" asp-route-id="@Model.Id">Delete</button>
             </div>
         </div>
-
     </form>
+
 
 </div>
 

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyWebSite.Models;
 using MyWebSite.Repository.Interface;
+using MyWebSite.Utility;
 using MyWebSite.ViewModels;
 
 namespace MyWebSite.Controllers
@@ -51,7 +52,16 @@ namespace MyWebSite.Controllers
                 return View(projectViewModel);
             }
 
-            string fileName = await UploadFile(projectViewModel.ImageUpload);
+            string fileName = null;
+            try
+            {
+               fileName = await UploadFile.Add(projectViewModel.ImageUpload);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+
             if (fileName == null)
             {
                 return View(projectViewModel);
@@ -93,9 +103,19 @@ namespace MyWebSite.Controllers
             if (projectViewModel.ImageUpload != null)
             {
                 // Delete Old image
-                DeleteUploadFile(projectViewModel.MainImage);
+                UploadFile.Delete(projectViewModel.MainImage);
 
-                string fileName = await UploadFile(projectViewModel.ImageUpload);
+                string fileName = null;
+                try
+                {
+                    fileName = await UploadFile.Add(projectViewModel.ImageUpload);
+
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                }
+
                 if (fileName == null)
                 {
                     return View(projectViewModel);
@@ -112,40 +132,115 @@ namespace MyWebSite.Controllers
         }
 
 
-        private async Task<string> UploadFile(IFormFile formFile)
+        // Get - Detail
+        public async Task<IActionResult> Details(Guid id)
         {
-            var imgPrefixo = Guid.NewGuid() + "_";
-
-            if (formFile == null)
+            if (id.ToString() == null)
             {
-                ModelState.AddModelError(string.Empty, "Must be informad the Main Image.");
-                return null;
+                return NotFound();
             }
 
-            string filename = imgPrefixo + formFile.FileName;
-            var path = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwroot/images", filename);
-            if (System.IO.File.Exists(path))
+            var projectFromRep = await _projectRep.GetById(id);
+            if (projectFromRep == null)
             {
-                ModelState.AddModelError(string.Empty, "The file already exist with this name");
-                return null;
+                return NotFound();
             }
 
-            using (var stream = new System.IO.FileStream(path, System.IO.FileMode.Create))
+            var projectModelView = _mapper.Map<ProjectViewModel>(projectFromRep);
+
+            return View(projectModelView);
+        }
+
+
+        // Get - Delete
+        public async Task<IActionResult> Delete (Guid id)
+        {
+            if (id.ToString() == null)
             {
-                await formFile.CopyToAsync(stream);
+                return NotFound();
             }
+
+            var projectFromRep = await _projectRep.GetById(id);
+            if (projectFromRep == null)
+            {
+                return NotFound();
+            }
+
+            var projectModelView = _mapper.Map<ProjectViewModel>(projectFromRep);
+
+            return View(projectModelView);
+        }
+
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> DeletePost(Guid id)
+        {
+            var projectFromRep = await _projectRep.GetById(id);
+            if (projectFromRep == null)
+            {
+                return NotFound();
+            }
+
+            // Update image
+            if (projectFromRep.MainImage != null)
+            {
+                // Delete Old image
+                UploadFile.Delete(projectFromRep.MainImage);
+            }
+
+            await _projectRep.Delete(id);
+            await _projectRep.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        // Get - Images
+        public async Task<IActionResult> Images(Guid id)
+        {
+            var projectImagesFromRep = await _projectRep.GetProjectAndImages(id);
+            var projectViewModel = _mapper.Map<ProjectViewModel>(projectImagesFromRep);
+
+            return View(projectViewModel);
+        }
+
+
+        //private async Task<string> UploadFile(IFormFile formFile)
+        //{
+        //    var imgPrefixo = Guid.NewGuid() + "_";
+
+        //    if (formFile == null)
+        //    {
+        //        ModelState.AddModelError(string.Empty, "Must be informad the Main Image.");
+        //        return null;
+        //    }
+
+        //    string filename = imgPrefixo + formFile.FileName;
+        //    var path = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwroot/images", filename);
+        //    if (System.IO.File.Exists(path))
+        //    {
+        //        ModelState.AddModelError(string.Empty, "The file already exist with this name");
+        //        return null;
+        //    }
+
+        //    using (var stream = new System.IO.FileStream(path, System.IO.FileMode.Create))
+        //    {
+        //        await formFile.CopyToAsync(stream);
+        //    }
            
-            return filename;
-        }
+        //    return filename;
+        //}
 
-        private void DeleteUploadFile(string file)
-        {
-            var path = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwwroot/images/", file);
-            if (System.IO.File.Exists(path))
-            {
-                System.IO.File.Delete(path);
-            }
+        //private void DeleteUploadFile(string file)
+        //{
+        //    var path = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "wwwroot/images", file);
+        //    if (System.IO.File.Exists(path))
+        //    {
+        //        System.IO.File.Delete(path);
+        //    }
 
-        }
+        //}
     }
 }

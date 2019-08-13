@@ -10,6 +10,8 @@ namespace MyWebSite.AutoMapper
         public AutoMapperConfig()
         {
             CreateMap<Project, ProjectViewModel>().ReverseMap();
+
+            CreateMap<ProjectImage, ProjectImageViewModel>().ReverseMap();
         }
     }
 }

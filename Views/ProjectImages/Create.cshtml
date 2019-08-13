@@ -1,9 +1,8 @@
-﻿@model MyWebSite.ViewModels.ProjectViewModel
-
+﻿@model MyWebSite.ViewModels.ProjectImageViewModel;
 
 
 @{
-    ViewData["Title"] = "Edit Project";
+    ViewData["Title"] = "Create Project Images";
 
 }
 
@@ -11,9 +10,11 @@
 
     <h4>@ViewData["Title"]</h4>
 
-    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
 
-        <partial name="_ProjectEdit.cshtml" />
+        <input type="hidden" asp-for="ProjectViewModel.Id" />
+
+        <partial name="_ProjectImageEdit.cshtml" />
 
         <div class="row">
             <div class="col-12 col-md-6">
@@ -30,15 +31,13 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script>$(function () {
-            $('#datetimepicker4').datetimepicker({
-                format: 'L'
-            });
-        });
+    <script>
 
         // Add the following code if you want the name of the file appear on select
         $(".custom-file-input").on("change", function () {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });</script>
+        });
+
+    </script>
 }

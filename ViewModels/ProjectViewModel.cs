@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 
@@ -23,6 +24,7 @@ namespace MyWebSite.ViewModels
         public string MainImage { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Created { get; set; }
 
         [Display(Name = "GitHub")]
@@ -35,5 +37,8 @@ namespace MyWebSite.ViewModels
 
         [Display(Name = "Is Active?")]
         public bool IsActive { get; set; }
+
+        public IEnumerable<ProjectImageViewModel> ProjectImages { get; set; }
+
     }
 }

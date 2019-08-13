@@ -1,0 +1,75 @@
+﻿@model MyWebSite.ViewModels.ProjectViewModel
+
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<input asp-for="MainImage" type="hidden" />
+
+<div class="row">
+
+    <div class="col-12 col-md-12 ">
+        <img src="~/images/@Model.MainImage" alt="@Model.Name" style="width:70px; height:100px;" />
+    </div>
+
+    <div class="col-12 col-md-6 ">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" readonly>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="form-group">
+            <label asp-for="Created" class="control-label"></label>
+            <input asp-for="Created" class="form-control" readonly/>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <textarea asp-for="Description" class="form-control" rows="4" readonly>
+                    </textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label asp-for="ToolsUsed" class="control-label"></label>
+            <textarea asp-for="ToolsUsed" class="form-control" rows="2" readonly></textarea>
+            <span asp-validation-for="ToolsUsed" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="form-group">
+            <label asp-for="GitHubLink" class="control-label"></label>
+            <input asp-for="GitHubLink" class="form-control" readonly>
+            <span asp-validation-for="GitHubLink" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="form-group">
+            <label asp-for="Url" class="control-label"></label>
+            <input asp-for="Url" class="form-control" readonly>
+            <span asp-validation-for="Url" class="text-danger"></span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="form-group">
+            <label asp-for="IsActive" class="control-label"></label>
+            <input asp-for="IsActive" value="true"  readonly class="form-control">
+            <span asp-validation-for="IsActive" class="text-danger"></span>
+        </div>
+    </div>
+</div>

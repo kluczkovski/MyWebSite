@@ -8,11 +8,12 @@
 
 <div class="backgroundWhiteBorder">
 
-    <h4>List of Projects</h4>
-
-    <a class="btn btn-info" asp-action="Create">
-        Create New Project
-    </a>
+    <h4>List of Projects
+      <a asp-action="Create"> 
+        <span><i class="fas fa-plus-circle"></i></span>
+      </a>
+      
+    </h4>
 
     <table class="table table-hover mt-4">
         <thead class="table-dark">
@@ -27,19 +28,20 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        <img src="~/images/@item.MainImage" alt="@item.Name" style="width:70px; height:100px;" />
-                    </td>
-                    <td>@item.Name</td>
-                    <td>@item.Created.ToString("D")</td>
-                    <td>@item.IsActive</td>
-                    <td class="text-right">
-                        <a class="btn bg-black btn-sm" asp-controller="Projects" asp-action="Edit" asp-route-id="@item.Id"><span><i class="fas fa-pen"></i></span></a>
-                        <a class="btn bg-black btn-sm" asp-controller="Projects" asp-action="Details" asp-route-id="@item.Id"><spn><i class="fas fa-info-circle"></i></spn> </a>
-                        <a class="btn bg-black btn-sm" asp-controller="Projects" asp-action="Delete" asp-route-id="@item.Id"><span><i class="fas fa-minus-circle"></i></span></a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    <img src="~/images/@item.MainImage" alt="@item.Name" style="width:70px; height:100px;" />
+                </td>
+                <td>@item.Name</td>
+                <td>@item.Created.ToString("D")</td>
+                <td>@item.IsActive</td>
+                <td class="text-right">
+                    <a  asp-controller="Projects" asp-action="Edit" asp-route-id="@item.Id" title="Edit"><span><i class="fas fa-pen"></i></span></a>
+                    <a  asp-controller="Projects" asp-action="Details" asp-route-id="@item.Id" title="Details"><spn><i class="fas fa-info-circle" style="color:#6c757d;"></i></spn> </a>
+                    <a  asp-controller="Projects" asp-action="Delete" asp-route-id="@item.Id" title="Delete"><span><i class="fas fa-minus-circle"></i></span></a>
+                    <a  asp-controller="Projects" asp-action="Images" asp-route-id="@item.Id" title="Images"><span><i class="fas fa-images"></i></span></a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
