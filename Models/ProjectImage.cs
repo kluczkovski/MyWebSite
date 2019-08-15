@@ -7,7 +7,7 @@ namespace MyWebSite.Models
         {
         }
 
-        Project Project { get; set; }
+        public Project Project { get; set; }
         public Guid ProjectId { get; set; }
 
         public string ImageName { get; set; }

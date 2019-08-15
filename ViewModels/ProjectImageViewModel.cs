@@ -8,6 +8,7 @@ namespace MyWebSite.ViewModels
     public class ProjectImageViewModel
     {
         public ProjectViewModel ProjectViewModel { get; set; }
+        public Guid ProjectId { get; set; }
 
         public Guid Id { get; set; }
 

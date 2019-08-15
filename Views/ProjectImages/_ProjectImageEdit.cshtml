@@ -3,8 +3,6 @@
 
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<input asp-for="Id" type="hidden" />
-
 <div class="row">
 
     @if (Model.Image != null)
@@ -12,7 +10,7 @@
         <div class="col-12 col-md-12 ">
             <img src="~/images/@Model.Image" alt="@Model.ImageName" style="width:70px; height:100px;" />
         </div>
-    }    
+    }
 </div>
 
 <div class="row">

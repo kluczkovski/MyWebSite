@@ -21,9 +21,7 @@
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/Delete.g.cshtml.cs
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/Details.g.cshtml.cs
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/Edit.g.cshtml.cs
-/Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/Images.g.cshtml.cs
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/Index.g.cshtml.cs
-/Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/_ListOfImages.g.cshtml.cs
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/_ProjectDetails.g.cshtml.cs
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/_ProjectEdit.g.cshtml.cs
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Shared/Error.g.cshtml.cs
@@ -39,3 +37,7 @@
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/MyWebSite.pdb
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/MyWebSite.csproj.CopyComplete
 /Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/MyWebSite.csprojAssemblyReference.cache
+/Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/ProjectImages/Edit.g.cshtml.cs
+/Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/ProjectImages/Index.g.cshtml.cs
+/Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/OldImages.g.cshtml.cs
+/Users/ekluczkovski/Projects/MyWebSite/obj/Debug/netcoreapp2.2/Razor/Views/Projects/Old_ListOfImages.g.cshtml.cs

@@ -1,0 +1,45 @@
+﻿@model MyWebSite.ViewModels.ProjectImageViewModel;
+
+
+@{
+    ViewData["Title"] = "Edit Project Images";
+
+}
+
+<div class="backgroundWhiteBorder">
+
+    <h4>@ViewData["Title"]</h4>
+
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+
+        <input asp-for="Id" type="hidden" />
+        <input asp-for="ProjectId" type="hidden" />
+
+
+        <partial name="_ProjectImageEdit.cshtml" />
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <a class="btn btn-warning form-control" asp-action="Index" asp-route-id="@Model.ProjectId">Back to List</a>
+            </div>
+            <div class="col-12 col-md-6">
+                <button class="btn btn-primary form-control">Save</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+
+    </script>
+}

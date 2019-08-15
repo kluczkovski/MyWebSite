@@ -1,59 +1,45 @@
 ﻿<Properties StartupConfiguration="{57AA82FE-15FE-4500-82CC-747B2909B97F}|Default">
   <MonoDevelop.Ide.ItemProperties.MyWebSite PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/ProjectImagesController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Projects/OldImages.cshtml">
     <Files>
-      <File FileName="Controllers/ProjectsController.cs" Line="58" Column="25" />
-      <File FileName="Views/Projects/Images.cshtml" Line="1" Column="45" />
-      <File FileName="Views/Projects/_ListOfImages.cshtml" Line="6" Column="12" />
-      <File FileName="Views/Projects/Index.cshtml" Line="39" Column="92" />
-      <File FileName="Controllers/ProjectImagesController.cs" Line="75" Column="1" />
-      <File FileName="ViewModels/ProjectViewModel.cs" Line="8" Column="34" />
-      <File FileName="ViewModels/ProjectImageViewModel.cs" Line="10" Column="32" />
-      <File FileName="Models/ProjectImage.cs" Line="8" Column="1" />
-      <File FileName="Views/ProjectImages/Create.cshtml" Line="16" Column="1" />
-      <File FileName="Views/ProjectImages/_ProjectImageEdit.cshtml" Line="23" Column="48" />
-      <File FileName="Utility/UploadFile.cs" Line="12" Column="1" />
-      <File FileName="Views/Projects/Create.cshtml" Line="1" Column="1" />
-      <File FileName="Views/Projects/_ProjectEdit.cshtml" Line="6" Column="1" />
-      <File FileName="Views/Projects/Edit.cshtml" Line="14" Column="71" />
-      <File FileName="Views/Projects/Details.cshtml" Line="1" Column="1" />
-      <File FileName="Models/Entity.cs" Line="11" Column="1" />
+      <File FileName="Controllers/ProjectImagesController.cs" Line="142" Column="1" />
+      <File FileName="Views/ProjectImages/Edit.cshtml" Line="16" Column="34" />
+      <File FileName="Controllers/ProjectsController.cs" Line="30" Column="1" />
+      <File FileName="Views/ProjectImages/_ProjectImageEdit.cshtml" Line="5" Column="1" />
+      <File FileName="Views/ProjectImages/Index.cshtml" Line="38" Column="7" />
+      <File FileName="ViewModels/ProjectImageViewModel.cs" Line="11" Column="30" />
+      <File FileName="Utility/UploadFile.cs" Line="31" Column="1" />
+      <File FileName="Models/ProjectImage.cs" Line="10" Column="16" />
+      <File FileName="Views/Projects/Old_ListOfImages.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Projects/OldImages.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MyWebSite" expanded="True">
             <Node name="MyWebSite" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="ProjectImagesController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Repository" expanded="True" />
               <Node name="Utility" expanded="True" />
               <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="ProjectImages" expanded="True" />
-                <Node name="Projects" expanded="True" />
+                <Node name="Projects" expanded="True">
+                  <Node name="OldImages.cshtml" selected="True" />
+                </Node>
               </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="images" expanded="True" />
-              </Node>
+              <Node name="wwwroot" expanded="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/ekluczkovski/Projects/MyWebSite/Controllers/ProjectImagesController.cs" relfile="Controllers/ProjectImagesController.cs" line="54" column="1" />
-      <Breakpoint file="/Users/ekluczkovski/Projects/MyWebSite/Controllers/ProjectImagesController.cs" relfile="Controllers/ProjectImagesController.cs" line="75" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

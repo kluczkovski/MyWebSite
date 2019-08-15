@@ -1,0 +1,43 @@
+﻿@model MyWebSite.ViewModels.ProjectViewModel
+
+<div class="backgroundWhiteBorder">
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" readonly>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <h4>List of Images 
+        <a asp-controller="ProjectImages" asp-action="Create" asp-route-idProject="@Model.Id"><span><i class="fas fa-plus-circle"></i></span></a>
+    </h4>
+
+
+    <table class="table table-hover mt-4">
+        <thead class="table-dark">
+            <tr>
+                <th></th>
+                <th>@Html.DisplayNameFor(m => m.Name)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ProjectImages)
+            {
+                <tr>
+                    <td>@item.ImageName</td>
+                    <td>
+                        <img src="~/images/@item.Image" alt="@item.Image" style="width:70px; height:100px;" />
+                    </td>
+                    <td class="text-right">
+                        <a asp-controller="ProjectImages" asp-action="Edit" asp-route-id="@item.Id" title="Edit"><span><i class="fas fa-pen"></i></span></a>
+                        <a asp-controller="ProjectImages" asp-action="Details" asp-route-id="@item.Id" title="Details"><spn><i class="fas fa-info-circle" style="color:#6c757d;"></i></spn> </a>
+                        <a asp-controller="ProjectImages" asp-action="Delete" asp-route-id="@item.Id" title="Delete"><span><i class="fas fa-minus-circle"></i></span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>

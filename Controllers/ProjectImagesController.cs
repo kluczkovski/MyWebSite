@@ -27,9 +27,12 @@ namespace MyWebSite.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public async Task<IActionResult> Index(Guid id)
         {
-            return View();
+            var projectImagesFromRep = await _projectRep.GetProjectAndImages(id);
+            var projectViewModel = _mapper.Map<ProjectViewModel>(projectImagesFromRep);
+
+            return View(projectViewModel);
         }
 
 
@@ -74,12 +77,69 @@ namespace MyWebSite.Controllers
 
             projectImageViewModel.Image = fileName;
             var projectImage = _mapper.Map<ProjectImage>(projectImageViewModel);
-            //var project = _projectRep.GetById(projectImageViewModel.ProjectViewModel.Id);
             projectImage.ProjectId = projectImageViewModel.ProjectViewModel.Id;
             await _projectImageRep.Add(projectImage);
             await _projectImageRep.SaveChanges();
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", new { id = projectImageViewModel.ProjectId });
         }
+
+
+        //Get: Edit
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var projectImageFromRep = await _projectImageRep.GetById(id);
+            var projectImageVM = _mapper.Map<ProjectImageViewModel>(projectImageFromRep);
+            return View(projectImageVM);
+        }
+
+
+        //Post: Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Guid id, ProjectImageViewModel projectImageViewModel)
+        {
+            if (id != projectImageViewModel.Id) return NotFound();
+
+            ModelState.Remove("ProjectViewModel.Name");
+            ModelState.Remove("ProjectViewModel.Description");
+            if (!ModelState.IsValid)
+            {
+                return View(projectImageViewModel);
+            }
+
+    
+            //Delete Old File
+            if (projectImageViewModel.Image != null)
+            {
+                UploadFile.Delete(projectImageViewModel.Image);
+            }
+
+            string fileName = null;
+            try
+            {
+                fileName = await UploadFile.Add(projectImageViewModel.ImageUpload);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+
+            if (fileName == null)
+            {
+                return View(projectImageViewModel);
+            }
+
+            projectImageViewModel.Image = fileName;
+            var projectImage = _mapper.Map<ProjectImage>(projectImageViewModel);
+            projectImage.ProjectId = projectImageViewModel.ProjectId;
+
+            await _projectImageRep.Update(projectImage);
+            await _projectImageRep.SaveChanges();
+
+           
+            return RedirectToAction("Index", new { id = projectImageViewModel.ProjectId });
+        }
+
     }
 }

@@ -197,14 +197,17 @@ namespace MyWebSite.Controllers
         }
 
 
-        // Get - Images
-        public async Task<IActionResult> Images(Guid id)
-        {
-            var projectImagesFromRep = await _projectRep.GetProjectAndImages(id);
-            var projectViewModel = _mapper.Map<ProjectViewModel>(projectImagesFromRep);
+        //// Get - Images
+        //public async Task<IActionResult> Images(Guid id)
+        //{
 
-            return View(projectViewModel);
-        }
+        //    return RedirectToAction("Index", "ProjectImagesController", new { Guid = id});
+
+        //    //var projectImagesFromRep = await _projectRep.GetProjectAndImages(id);
+        //    //var projectViewModel = _mapper.Map<ProjectViewModel>(projectImagesFromRep);
+
+        //    //return View(projectViewModel);
+        //}
 
 
         //private async Task<string> UploadFile(IFormFile formFile)
